@@ -5,7 +5,16 @@ clock.time = 300000 // Countdown time in milliseconds
 clock.place = clock.time
 
 // Start countdown
-clock.start = _ => {
+clock.start = start => {
+
+    if (!start) {
+        try {
+            clearInterval(clock.interval)
+        } catch (error) {
+            
+        }
+    }
+
     clock.interval = setInterval(_ => {
 
         const distance = clock.place
@@ -52,10 +61,13 @@ document.addEventListener('visibilitychange', _ => {
         clock.place = clock.time
         clock.start();
     };
+    if (document.visibilityState === 'hidden') {
+        clock.place = clock.time
+        clock.start(false);
+    };
 });
 
 window.addEventListener('load', _ => {
-    console.log(document.visibilityState)
     if (document.visibilityState === 'visible') {
         clock.place = clock.time
         clock.start();
