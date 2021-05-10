@@ -11,12 +11,12 @@ main {
     align-items: center;
     height: 20vh;
     border: hidden; 
-    margin-top: 30vh;
+    margin-top: 35vh;
 }
 
 p#clock {
     color: red;
-    font-size: 8vw;
+    font-size: 15vw;
     font-family: 'Roboto Mono';
     height: fit-content;
 }
